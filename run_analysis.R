@@ -32,10 +32,22 @@ colnames(allData) <- c("activityID", "SubjectID", features[,2])
 remove(testData, trainData)
 
 # Create a logical vector of columns with 'mean' or 'std' in their name
-columnNames <- grepl("mean", features[,2]) | grepl("std", features[,2])
+columnNames <- grepl("mean\\(\\)", features[,2]) | grepl("std\\(\\)", features[,2])
 
 # Adding two TRUEs for the activityID and subject ID that we're keeping
 columnNames <- c(TRUE, TRUE, columnNames)
 
 # Subset to only keep the columns we want using the the logical vector we created earlier
 allData <- allData[,columnNames]
+
+# Merge the activity names into our data
+allData <- merge(allData, activities, by="activityID")
+
+# Create a data frame with the mean of all the data by activity and subject
+tidyData <- aggregate(allData[,3:68], list(ActivityID = allData$ActivityID, SubjectID = allData$SubjectID), mean)
+
+# Add the activity name back to our tidy data
+tidyData<-merge(tidyData, activities, by="activityID")
+
+# Export the tidyData set 
+write.table(tidyData, '../tidyData.csv',row.name=FALSE,sep=',')
