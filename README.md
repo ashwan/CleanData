@@ -6,6 +6,8 @@ Repository for the Coursera Getting and Cleaning Data course.
 
 This course project involves the tidying of some data of an experiment on Human Activity Recognition using Smartphone Data from the [UCI Machine Learning repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
+For a description of what the R script does, please see the `codebook.md` file and comments in the R script itself.
+
 ### Project requirements
 
 1. Merge the training and the test sets to create one data set.
