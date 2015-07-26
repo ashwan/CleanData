@@ -29,7 +29,7 @@ The script `run_analysis.R` in this repo attempts to read, merge and clean the d
 * Add the activity name to new data set using `merge()`
 * Use `write.table()` to output this tidy data set to a `.txt` file
 
-### Variable added
+### Variables added
 Variable name | Description
 ------------- | -------------
 ActivityID  | Activity as listed in `activity_labels.txt` in the orignal data set
